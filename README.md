@@ -1,10 +1,10 @@
 # Logo-Maker
 
 ## Description
-
+This Node.js command-line application generates a custom SVG logo. Users can input up to three characters for the logo text, select a shape (Circle, Triangle, or Square), and specify colors for both the text and shape using color keywords or hexadecimal values. The application creates a logo.svg file based on these inputs. To use, clone the repository, install dependencies with `npm install`, and run `node index.js` to generate your logo. 
 
 ## Walk-Through Video
-[Video](https://www.loom.com/share/4edaf2d6598d4f86a7e5b69d06d130de?sid=d6df2e12-3a4b-4213-97a6-a8218683063c)
+[Video](https://www.loom.com/share/b8e5dbbe232142fb82784e34aef235f5?sid=48c05112-b77d-4342-9d2c-5b3814b140e8)
 
 ## User Story
 AS a freelance web developer
@@ -28,3 +28,6 @@ WHEN I open the `logo.svg` file in a browser
 THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 ## Links
+Deployed Link: https://catdelaney.github.io/Logo-Maker/
+
+GitHub Repo: https://github.com/catdelaney/Logo-Maker
