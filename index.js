@@ -32,7 +32,7 @@ function writeToFile(fileName, data) {
         if (err) {
             console.error('An error has occured', err);
         } else {
-            console.log('SVG file has been generated.')
+            console.log('Generated logo.svg')
         }
     })
 }
