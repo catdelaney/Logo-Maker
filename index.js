@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateSVG = require("./lib/shapes")
+const { Circle, Triangle, Square } = require("./lib/shapes")
+const SVG = require('./lib/svg')
 
 const questions = [
     {
@@ -11,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'TextColor',
-        message: 'Enter a color keyword (or a hexadecimal number)',
+        message: 'Enter a color keyword (or a hexadecimal number) for your text',
     },
     {
         type: 'list',
@@ -22,7 +23,7 @@ const questions = [
     {
         type: 'input',
         name: 'ShapeColor',
-        message: 'Enter a color keyword (or a hexadecimal number)',
+        message: 'Enter a color keyword (or a hexadecimal number) for your shape',
     },
 ];
 
@@ -39,8 +40,20 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then((answers) => {
-        const SVG = generateSVG (answers);
-        writeToFile('logo.svg', SVG);
+        let Shape;
+        if (answers.Shape === 'circle'){
+            Shape = new Circle();
+        } else if (answers.Shape === 'triangle'){
+            Shape = new Triangle();
+        } else if (answers.Shape === 'square'){
+            Shape = new Square();
+        } 
+        Shape.setColor(answers.ShapeColor);
+        let svg = new SVG();
+        svg.setShapeElement(Shape);
+        svg.setTextElement(answers.TextColor,answers.Text);
+        console.log(svg.render());
+        writeToFile('./examples/logo.svg', svg.render());
     })
     .catch((error) => {
         console.error(error);
